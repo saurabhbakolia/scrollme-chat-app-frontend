@@ -17,7 +17,7 @@ import {
     Text,
     useToast,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
     const [phoneNumber, setPhoneNumber] = useState("");
@@ -26,6 +26,7 @@ const LoginPage = () => {
     const [otpSent, setOtpSent] = useState(false);
     const navigate = useNavigate();
     const toast = useToast();
+    const location = useLocation();
 
     useEffect(() => {
         // Disable app verification for testing in development mode
@@ -34,12 +35,13 @@ const LoginPage = () => {
         }
 
         const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (user) {
-                navigate("/"); // Redirect to the homepage if already logged in
+            console.log(location.pathname);
+            if (user && location.pathname === "/login") {
+                navigate("/"); // Redirect to the homepage if already logged in and on the login page
             }
         });
         return () => unsubscribe(); // Cleanup on unmount
-    }, [navigate]);
+    }, [navigate, location]);
 
     const handleLogin = async () => {
         try {
