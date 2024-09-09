@@ -4,7 +4,7 @@ import { Box, Flex, Link, Text } from '@chakra-ui/react';
 
 const Footer = () => {
     return (
-        <Box bg="brand.700" color="white" py={4} px={8}>
+        <Box bg="brand.700" color="white" py={4} px={8} borderTop="1px" borderColor="brand.600" mt="auto">
             <Flex align="center" justify="space-between" direction={{ base: 'column', md: 'row' }}>
                 <Text>&copy; {new Date().getFullYear()} ScrollMe Chat, Inc.</Text>
                 <Flex direction={{ base: 'column', md: 'row' }} align="center" justify="center">

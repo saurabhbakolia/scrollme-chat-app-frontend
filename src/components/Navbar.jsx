@@ -18,7 +18,17 @@ const Navbar = ({ user }) => {
     };
 
     return (
-        <Box bg="brand.500" px={4} py={2} boxShadow="md">
+        <Box
+            bg="brand.500"
+            px={4}
+            py={2}
+            boxShadow="md"
+            position="fixed"
+            top="0"
+            left="0"
+            width="100%"
+            zIndex="sticky" // Ensures it stays on top of other content
+        >
             <Flex h={16} alignItems="center" justifyContent="space-between">
                 <IconButton
                     size="md"

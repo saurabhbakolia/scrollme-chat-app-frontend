@@ -31,22 +31,24 @@ const HomePage = () => {
       <Navbar user={user} />
 
       {/* Main Content */}
-      <Box flex="1" p={4} display="flex" flexDirection="column" alignItems="center" justifyContent="center">
-        <Text fontSize="3xl" fontWeight="bold" mb={4} textAlign="center" color="brand.800">
-          Welcome to ScrollMe Chat
-        </Text>
-        {user ? (
-          <Box textAlign="center" maxW="md" bg="white" p={6} borderRadius="md" shadow="md">
-            <Text fontSize="xl" mb={2} color="brand.700">Welcome, {user.displayName || 'User'}!</Text>
-            <Text fontSize="md" color="gray.600" mb={4}>Email: {user.email}</Text>
-            <Button colorScheme="brand" onClick={handleLogout}>
-              Logout
-            </Button>
-          </Box>
-        ) : (
-          <Text fontSize="lg" color="gray.600">Please log in to access your account.</Text>
-        )}
-      </Box>
+      <Flex direction="column" flex="1" p={4} alignItems="center" justifyContent="center" overflow="scroll">
+        <Box textAlign="center" maxW="md" bg="white" p={6} borderRadius="md" shadow="md">
+          <Text fontSize="3xl" fontWeight="bold" mb={4} textAlign="center" color="brand.800">
+            Welcome to ScrollMe Chat
+          </Text>
+          {user ? (
+            <>
+              <Text fontSize="xl" mb={2} color="brand.700">Welcome, {user.displayName || 'User'}!</Text>
+              <Text fontSize="md" color="gray.600" mb={4}>Email: {user.email}</Text>
+              <Button colorScheme="brand" onClick={handleLogout}>
+                Logout
+              </Button>
+            </>
+          ) : (
+            <Text fontSize="lg" color="gray.600">Please log in to access your account.</Text>
+          )}
+        </Box>
+      </Flex>
 
       {/* Footer */}
       <Footer />

@@ -1,14 +1,14 @@
 // src/pages/TermsOfService.jsx
 import React from 'react';
-import { Box, Container, Heading, Text, Stack } from '@chakra-ui/react';
+import { Flex, Container, Heading, Text, Stack } from '@chakra-ui/react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const TermsOfService = () => {
     return (
-        <Box bg="brand.50" minH="100vh">
+        <Flex bg="brand.50" minH="100vh" direction="column">
             <Navbar />
-            <Container maxW="container.md" py={8}>
+            <Container maxW="container.md" py={8} flex="1">
                 <Heading as="h1" size="xl" mb={6} textAlign="center" color="brand.700">
                     Terms of Service
                 </Heading>
@@ -26,7 +26,7 @@ const TermsOfService = () => {
                 </Stack>
             </Container>
             <Footer />
-        </Box>
+        </Flex>
     );
 };
 
